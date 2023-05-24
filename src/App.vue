@@ -11,7 +11,16 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing!</p>
     </Modal>
   </div>
+
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">  <!-- theme="sale" -->
+      <h1>Lorem!</h1>
+      <p>Lorem ipsum dolor sit.</p>
+    </Modal>
+  </div>
+
   <button @click.alt="toggleModal">open modal (alt)</button>
+  <button @click="toggleModalTwo">open modal</button>
 </template>
 
 <script>
@@ -23,14 +32,16 @@ export default {
   data() {
     return {
       title: 'My Vue App',
-      header: 'Sign up for the Giveaway!',
-      text: 'Grab your ninja swag for half!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     }
   }
 }
